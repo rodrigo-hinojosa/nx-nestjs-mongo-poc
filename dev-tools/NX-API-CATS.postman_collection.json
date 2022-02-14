@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "5d415c97-5db2-4adf-b37d-cba4f35b0130",
+		"name": "NX-API-CATS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getCats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Response is OK', () => {",
+							"    pm.response.to.have.status(200);        ",
+							"        pm.collectionVariables.set('CAT_ID', pm.response.json()[0]._id)",
+							"    }",
+							");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_BASE_URL}}/cat",
+					"host": [
+						"{{API_BASE_URL}}"
+					],
+					"path": [
+						"cat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCatById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_BASE_URL}}/cat/{{CAT_ID}}",
+					"host": [
+						"{{API_BASE_URL}}"
+					],
+					"path": [
+						"cat",
+						"{{CAT_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addCat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"furuz\",\n    \"age\": 4,\n    \"breed\": \"giusepe\",\n    \"data\": {\n        \"asd\": 1,\n        \"zxc\": {\n            \"aaaa\": \"asdasd\",\n            \"axxxxa\": \"bbbbbbzxczxczxcbbb\"\n        }\n    }\n}\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_BASE_URL}}/cat",
+					"host": [
+						"{{API_BASE_URL}}"
+					],
+					"path": [
+						"cat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"furuz\",\n    \"age\": 4,\n    \"breed\": \"giusepe\",\n    \"data\": {\n        \"asd\": 1,\n        \"zxc\": {\n            \"aaaa\": \"asdasd\",\n            \"axxxxa\": \"bbbbbbbbb\"\n        }\n    }\n}\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_BASE_URL}}/cat/{{CAT_ID}}",
+					"host": [
+						"{{API_BASE_URL}}"
+					],
+					"path": [
+						"cat",
+						"{{CAT_ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "CAT_ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "API_BASE_URL",
+			"value": "localhost:6666/api",
+			"type": "string"
+		}
+	]
+}

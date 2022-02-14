@@ -7,23 +7,23 @@ import { ICat } from '@nestjs-mongo-poc/shared';
 export class CatController {
     constructor(private readonly providerCatService: ProviderCatService) { }
 
-    @Post()
-    async create(@Body() cat: ICat) {
-        return await this.providerCatService.addCat(cat);
-    }
-
     @Get()
-    async findAll(): Promise<any[]> {
+    async getCats(): Promise<any[]> {
         return await this.providerCatService.getCats();
     }
 
     @Get(':id')
-    async findOne(@Param('id') id: string): Promise<any> {
+    async getCatById(@Param('id') id: string): Promise<any> {
         return this.providerCatService.getCatById(id);
     }
 
+    @Post()
+    async addCat(@Body() cat: ICat) {
+        return await this.providerCatService.addCat(cat);
+    }
+
     @Delete(':id')
-    async delete(@Param('id') id: string) {
+    async deleteCatById(@Param('id') id: string) {
         return this.providerCatService.deleteCatById(id);
     }
 }

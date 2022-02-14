@@ -8,7 +8,7 @@ import {
 export class MongooseConfigService implements MongooseOptionsFactory {
     createMongooseOptions(): MongooseModuleOptions {
         return {
-            uri: process.env.MONGODB_URL
+            uri: process.env.MONGO_INITDB_ROOT_URL
         };
     }
 }

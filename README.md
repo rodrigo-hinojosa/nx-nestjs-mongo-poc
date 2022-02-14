@@ -1,6 +1,10 @@
 
 
-# NestjsMongoPoc
+# NxNestjsMongoPoc
+
+RUN docker-compose up
+
+and then import postman collection and enjoy!!!
 
 This project was generated using [Nx](https://nx.dev).
 

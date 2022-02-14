@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  mongodb:
+    hostname: cats-mongodb-dev
+    container_name: cats_mongodb_dev
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    restart: "unless-stopped"
+    volumes:
+      - ./configs/development/mongo/data/db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
