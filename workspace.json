@@ -1,4 +1,9 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "cats": "apps/cats",
+    "database": "libs/database",
+    "provider": "libs/provider",
+    "shared": "libs/shared"
+  }
 }

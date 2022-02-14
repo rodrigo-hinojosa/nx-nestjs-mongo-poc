@@ -1,0 +1,20 @@
+import { Test, TestingModule } from '@nestjs/testing';
+import { ProviderFelinesModule } from 'libs/provider/src/lib/animals/modules/felines/provider-felines.module';
+import { CatController } from './cat.controller';
+
+describe('CatController', () => {
+    let controller: CatController;
+
+    beforeEach(async () => {
+        const module: TestingModule = await Test.createTestingModule({
+            imports: [ProviderFelinesModule],
+            controllers: [CatController],
+        }).compile();
+
+        controller = module.get<CatController>(CatController);
+    });
+
+    it('should be defined', () => {
+        expect(controller).toBeDefined();
+    });
+});
