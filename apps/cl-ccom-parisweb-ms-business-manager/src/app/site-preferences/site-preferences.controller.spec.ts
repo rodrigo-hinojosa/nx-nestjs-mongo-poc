@@ -1,17 +1,19 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProviderModule } from '@nestjs-mongo-poc/provider';
-import { CatController } from './cat.controller';
+import { SitePreferencesController } from './site-preferences.controller';
 
-describe('CatController', () => {
-    let controller: CatController;
+describe('SitePreferencesController', () => {
+    let controller: SitePreferencesController;
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
             imports: [ProviderModule],
-            controllers: [CatController],
+            controllers: [SitePreferencesController],
         }).compile();
 
-        controller = module.get<CatController>(CatController);
+        controller = module.get<SitePreferencesController>(
+            SitePreferencesController
+        );
     });
 
     it('should be defined', () => {

@@ -1,9 +1,10 @@
 {
-  "version": 2,
-  "projects": {
-    "cats": "apps/cats",
-    "database": "libs/database",
-    "provider": "libs/provider",
-    "shared": "libs/shared"
-  }
+    "version": 2,
+    "projects": {
+        "cats": "apps/cats",
+        "cl-ccom-parisweb-ms-business-manager": "apps/cl-ccom-parisweb-ms-business-manager",
+        "database": "libs/database",
+        "provider": "libs/provider",
+        "shared": "libs/shared"
+    }
 }

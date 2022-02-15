@@ -13,7 +13,7 @@ import { CatService } from './services/cat.service';
                     return schema;
                 },
             },
-        ]),
+        ], 'cats'),
     ],
     providers: [CatService],
     exports: [CatService],

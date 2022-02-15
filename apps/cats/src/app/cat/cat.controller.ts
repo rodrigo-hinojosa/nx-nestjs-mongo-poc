@@ -1,7 +1,6 @@
-
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
-import { ProviderCatService } from 'libs/provider/src/lib/animals/modules/felines/services/provider-cat.service';
 import { ICat } from '@nestjs-mongo-poc/shared';
+import { ProviderCatService } from '@nestjs-mongo-poc/provider';
 
 @Controller('cat')
 export class CatController {

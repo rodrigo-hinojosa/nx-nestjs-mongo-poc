@@ -6,6 +6,74 @@ RUN docker-compose up
 
 and then import postman collection and enjoy!!!
 
+## install NX global
+`npm i -g nx`
+
+## make workspace (empty)
+`npx create-nx-workspace@latest --preset=empty`
+
+## add nestjs pluggin
+`npm i -D @nrwl/nest`
+
+## make nestjs application
+`nx generate @nrwl/nest:application cats`
+
+*** CAT APP ***
+
+## make modules in nest app
+`nx g @nrwl/nest:module cat -p cats --dir app`
+
+## make controller in nest app
+`nx g @nrwl/nest:controller cat -p cats --dir app/cat --flat`
+
+## make service in nest app
+`nx generate @nrwl/nest:service cat -p cats --dir app/cat --flat`
+
+*** DATABASE LIBRARY ***
+
+## make nestjs database library
+`nx g @nrwl/nest:library database`
+
+## make nest module in library
+`nx g @nrwl/nest:module animals -p database --dir lib`
+
+## make nest sub module in library
+`nx g @nrwl/nest:module felines -p database --dir lib/animals/modules`
+
+## make dto class
+`nx g @nestjs/schematics:class create-cat.dto --sourceRoot=libs/database/src/lib/animals/modules/felines/dto --no-spec`
+
+## make schema class
+`nx g @nestjs/schematics:class cat.schema --sourceRoot=libs/database/src/lib/animals/modules/felines/schemas --no-spec`
+
+## make service class
+`nx generate @nrwl/nest:service cat -p database --dir lib/animals/modules/felines/services --flat`
+
+## make config databse service class
+`nx generate @nrwl/nest:service mongodb.config.service -p database --dir lib/animals/config --flat --unitTestRunner none`
+
+*** PROVIDER LIBRARY ***
+
+## make nestjs provider library
+`nx g @nrwl/nest:library provider`
+
+## make nest module in library
+`nx g @nrwl/nest:module provider-animals -p provider --dir lib`
+
+## make nest sub module in library
+`nx g @nrwl/nest:module provider-felines -p provider --dir lib/animals/modules`
+
+## make service class
+`nx generate @nrwl/nest:service provider-cat -p provider --dir lib/animals/modules/felines/services --flat`
+
+*** SHARED LIBRARY ***
+`nx g @nrwl/nest:library shared`
+
+
+
+## run application
+nx run cats:serve
+
 This project was generated using [Nx](https://nx.dev).
 
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>

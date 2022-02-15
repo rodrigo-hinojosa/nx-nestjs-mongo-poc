@@ -1,18 +1,18 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { FelinesModule } from './modules/felines/felines.module';
 import { MongooseConfigService } from './config/mongodb.config.service';
+import { SitePreferencesModule } from './modules/site-preferences/site-preferences.module';
 
 @Module({
     imports: [
         MongooseModule.forRootAsync({
-            connectionName: 'cats',
+            connectionName: 'businessManager',
             imports: [ConfigModule],
             useClass: MongooseConfigService,
         }),
-        FelinesModule
+        SitePreferencesModule
     ],
-    exports: [FelinesModule],
+    exports: [SitePreferencesModule],
 })
-export class AnimalsModule { }
+export class BusinessManagerModule { }

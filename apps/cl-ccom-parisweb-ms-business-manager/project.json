@@ -1,0 +1,56 @@
+{
+    "root": "apps/cl-ccom-parisweb-ms-business-manager",
+    "sourceRoot": "apps/cl-ccom-parisweb-ms-business-manager/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/node:build",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/apps/cl-ccom-parisweb-ms-business-manager",
+                "main": "apps/cl-ccom-parisweb-ms-business-manager/src/main.ts",
+                "tsConfig": "apps/cl-ccom-parisweb-ms-business-manager/tsconfig.app.json",
+                "assets": [
+                    "apps/cl-ccom-parisweb-ms-business-manager/src/assets"
+                ]
+            },
+            "configurations": {
+                "production": {
+                    "optimization": true,
+                    "extractLicenses": true,
+                    "inspect": false,
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/cl-ccom-parisweb-ms-business-manager/src/environments/environment.ts",
+                            "with": "apps/cl-ccom-parisweb-ms-business-manager/src/environments/environment.prod.ts"
+                        }
+                    ]
+                }
+            }
+        },
+        "serve": {
+            "executor": "@nrwl/node:execute",
+            "options": {
+                "buildTarget": "cl-ccom-parisweb-ms-business-manager:build"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": [
+                    "apps/cl-ccom-parisweb-ms-business-manager/**/*.ts"
+                ]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/apps/cl-ccom-parisweb-ms-business-manager"],
+            "options": {
+                "jestConfig": "apps/cl-ccom-parisweb-ms-business-manager/jest.config.js",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": []
+}

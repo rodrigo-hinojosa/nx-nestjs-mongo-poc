@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AnimalsModule } from './animals/animals.module';
+import { BusinessManagerModule } from './business-manager/business-manager.module';
 
 @Module({
     imports: [
@@ -8,8 +9,12 @@ import { AnimalsModule } from './animals/animals.module';
             envFilePath: 'libs/database/.env',
             isGlobal: true,
         }),
-        AnimalsModule
+        AnimalsModule,
+        BusinessManagerModule,
     ],
-    exports: [AnimalsModule],
+    exports: [
+        AnimalsModule,
+        BusinessManagerModule,
+    ],
 })
 export class DatabaseModule { }
